@@ -1,12 +1,16 @@
 package refactoring.before;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class LoopsSortsAndIfs {
     public static void main(String[] args) {
+
+        List<String> evensList = Arrays.stream("this is an array of strings".split(" "))
+            .filter(s -> s.length() % 2 == 0)
+            .sorted(Comparator.comparingInt(String::length))
+            .collect(Collectors.toList());
+
         String[] strings = "this is an array of strings".split(" ");
 
         List<String> evenLengths = new ArrayList<>();
@@ -23,8 +27,10 @@ public class LoopsSortsAndIfs {
             }
         });
 
-        for (String s : evenLengths) {
-            System.out.println(s);
-        }
+//        for (String s : evenLengths) {
+//            System.out.println(s);
+//        }
+
+        System.out.println(evenLengths.equals(evensList));
     }
 }

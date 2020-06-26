@@ -2,7 +2,7 @@ package interfaces;
 
 public class MyCompany implements Company {
 
-    @Override
+//    @Override
     public String getName() {
         return "Yoyodyne Propulsion Systems";
     }

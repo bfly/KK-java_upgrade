@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface Company {
-    default String getName() {
+    static String getName() {
         return "Initech";
     }
 

@@ -1,6 +1,5 @@
 package lazy;
 
-import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.stream.IntStream;
 
@@ -9,6 +8,7 @@ public class LazyStreams {
 
     public static int multByTwo(int n) {
         System.out.printf("Inside multByTwo with arg %d%n", n);
+        logger.fine(() -> "Inside multByTwo with arg %d%n");
         return n * 2;
     }
 

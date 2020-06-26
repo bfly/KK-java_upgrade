@@ -7,16 +7,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.BinaryOperator;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class BinaryOperatorTest {
     @Test
     public void concatAsBinaryOperator() {
         BinaryOperator<String> concat = String::concat;
-        concat = (s, str) -> s.concat(str);
+        concat = String :: concat;
 
         List<String> strings = Arrays.asList("this", "is", "a", "list", "of", "strings");
         Optional<String> str = strings.stream()
                 //.filter(s -> false)
                 .reduce(concat);
-        System.out.println(str.orElse(""));
+        assertEquals("thisisalistofstrings", str.orElse(""));
+        //System.out.println(str.orElse(""));
     }
 }

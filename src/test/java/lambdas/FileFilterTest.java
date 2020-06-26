@@ -2,20 +2,20 @@ package lambdas;
 
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileFilter;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileFilterTest {
-    private String root = "src/main/java";
+    private final String root = "src/main/java";
 
     @Test
     public void listFilesNoArgs() {
         File f = new File(root);
         File[] files = f.listFiles();
-        assertEquals(20, files.length);
+        assertEquals(20, Objects.requireNonNull(files).length);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class FileFilterTest {
             }
         });
 
-        assertEquals(8, files.length);
+        assertEquals(8, Objects.requireNonNull(files).length);
     }
 
     @Test
@@ -37,6 +37,6 @@ public class FileFilterTest {
         FileFilter filter = pathname -> pathname.getName().endsWith(".java");
         File[] files = f.listFiles(filter);
 
-        assertEquals(8, files.length);
+        assertEquals(8, Objects.requireNonNull(files).length);
     }
 }
